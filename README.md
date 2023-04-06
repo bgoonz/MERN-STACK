@@ -106,9 +106,13 @@ app.listen(5000); // start Node + Express server on port 5000
 
 ##### Gneral Planning Steps:
 1.) Define the app's purpose and scope.
+
 2.) Create a wireframe.
+
 3.) Plan your data models
+
 4.) Plan your endpoints (API Backend) and pages (SPA Frontend).
+
 
 
 **Build an app where users can share places (withimages & location) with other users.**
