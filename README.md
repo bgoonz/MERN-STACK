@@ -90,3 +90,12 @@ app.post("/product", (req, res, next) => {
 
 app.listen(5000); // start Node + Express server on port 5000
 ```
+
+
+## Resources:
+- [React Docs](https://reactjs.org/docs/getting-started.html)
+- [Node Docs](https://nodejs.org/en/docs/)
+- [Express Docs](https://expressjs.com/en/4x/api.html)
+- [MongoDB Docs](https://docs.mongodb.com/)
+
+
