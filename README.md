@@ -132,3 +132,31 @@ app.listen(5000); // start Node + Express server on port 5000
   - Address
   - Location( Latitude & Longitude)
   - Image
+
+
+
+### API Endpoints:
+- **Users**
+  - GET /users
+  - POST /users/signup
+  - POST /users/login
+
+- **Places**
+  - GET /places
+  - GET /places/:pid
+  - POST /places
+  - PATCH /places/:pid
+  - DELETE /places/:pid
+
+- **Images**
+  - POST /places/:pid/image
+
+
+##### Required SPA Pages:
+
+`/` ---> List of Users ---> Always reachable
+`/:uid/places` ---> List of places for selected user ---> Always reachable
+`/authenticate` ---> Login/Signup ---> Only reachable when not authenticated
+`/places/new` ---> Add new place Form --->Only reachable when authenticated
+`/places/:pid` ---> Update/Delete place Form --->Only reachable when authenticated
+
