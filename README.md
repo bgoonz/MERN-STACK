@@ -99,3 +99,20 @@ app.listen(5000); // start Node + Express server on port 5000
 - [MongoDB Docs](https://docs.mongodb.com/)
 
 
+---
+---
+
+## Planning the App:
+
+##### Gneral Planning Steps:
+1.) Define the app's purpose and scope.
+2.) Create a wireframe.
+3.) Plan your data models
+4.) Plan your endpoints (API Backend) and pages (SPA Frontend).
+
+
+**Build an app where users can share places (withimages & location) with other users.**
+- Utilize CRUD operations( Create, Read, Update, Delete)
+- Multiple data models, image upload & input validation.
+- Authentication & Authorization(updating and deleting should only be available to those who created the data)
+
