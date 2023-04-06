@@ -36,6 +36,7 @@ app.post("/product", (req, res, next) => {
   }
 
   const createdProduct = {
+    //uuid is a function that generates a unique id.
     id: uuid(),
     title,
     price,
