@@ -120,3 +120,15 @@ app.listen(5000); // start Node + Express server on port 5000
 - Multiple data models, image upload & input validation.
 - Authentication & Authorization(updating and deleting should only be available to those who created the data)
 
+### Application Data:
+- **Users** _(one user can create multiple places)_
+  - Name
+  - Email
+  - Password
+  - Image
+- **Places** _(one place belongs to exactly one user)_
+  - Title
+  - Description
+  - Address
+  - Location( Latitude & Longitude)
+  - Image
