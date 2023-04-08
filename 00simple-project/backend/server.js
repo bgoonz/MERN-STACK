@@ -22,6 +22,8 @@ app.use((req, res, next) => {
   next();
 });
 
+
+
 app.get("/products", (req, res, next) => {
   res.status(200).json({ products: DUMMY_PRODUCTS });
 });
