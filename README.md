@@ -91,20 +91,21 @@ app.post("/product", (req, res, next) => {
 app.listen(5000); // start Node + Express server on port 5000
 ```
 
-
 ## Resources:
+
 - [React Docs](https://reactjs.org/docs/getting-started.html)
 - [Node Docs](https://nodejs.org/en/docs/)
 - [Express Docs](https://expressjs.com/en/4x/api.html)
 - [MongoDB Docs](https://docs.mongodb.com/)
 
-
 ---
+
 ---
 
 ## Planning the App:
 
 ##### Gneral Planning Steps:
+
 1.) Define the app's purpose and scope.
 
 2.) Create a wireframe.
@@ -113,14 +114,14 @@ app.listen(5000); // start Node + Express server on port 5000
 
 4.) Plan your endpoints (API Backend) and pages (SPA Frontend).
 
-
-
 **Build an app where users can share places (withimages & location) with other users.**
+
 - Utilize CRUD operations( Create, Read, Update, Delete)
 - Multiple data models, image upload & input validation.
 - Authentication & Authorization(updating and deleting should only be available to those who created the data)
 
 ### Application Data:
+
 - **Users** _(one user can create multiple places)_
   - Name
   - Email
@@ -133,15 +134,16 @@ app.listen(5000); // start Node + Express server on port 5000
   - Location( Latitude & Longitude)
   - Image
 
-
-
 ### API Endpoints:
+
 - **Users**
+
   - GET /users
   - POST /users/signup
   - POST /users/login
 
 - **Places**
+
   - GET /places
   - GET /places/:pid
   - POST /places
@@ -151,7 +153,6 @@ app.listen(5000); // start Node + Express server on port 5000
 - **Images**
   - POST /places/:pid/image
 
-
 ##### Required SPA Pages:
 
 `/` ---> List of Users ---> Always reachable
@@ -159,4 +160,3 @@ app.listen(5000); // start Node + Express server on port 5000
 `/authenticate` ---> Login/Signup ---> Only reachable when not authenticated
 `/places/new` ---> Add new place Form --->Only reachable when authenticated
 `/places/:pid` ---> Update/Delete place Form --->Only reachable when authenticated
-
