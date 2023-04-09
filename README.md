@@ -160,3 +160,14 @@ app.listen(5000); // start Node + Express server on port 5000
 `/authenticate` ---> Login/Signup ---> Only reachable when not authenticated
 `/places/new` ---> Add new place Form --->Only reachable when authenticated
 `/places/:pid` ---> Update/Delete place Form --->Only reachable when authenticated
+
+---
+
+---
+
+## Frontend:
+
+**Two main types of React Components:**
+
+- Presentational components: These are components that are responsible for how things look. They are also called "dumb" or "stateless" components because they don't manage any state.
+- Stateful components: These are components that are responsible for how things work. They are also called "smart" or "stateful" components because they manage state.
