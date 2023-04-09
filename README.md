@@ -171,3 +171,15 @@ app.listen(5000); // start Node + Express server on port 5000
 
 - Presentational components: These are components that are responsible for how things look. They are also called "dumb" or "stateless" components because they don't manage any state.
 - Stateful components: These are components that are responsible for how things work. They are also called "smart" or "stateful" components because they manage state.
+
+
+**React Router Exact Route**
+
+
+```js
+  <NavLink to="/" exact>
+          ALL USERS
+        </NavLink>
+```
+
+- in the above code the exact keyword is used to make sure that the route is only active when the path is an exact match to the current url ... alternativley written `exact={true}`
