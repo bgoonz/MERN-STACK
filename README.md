@@ -183,3 +183,20 @@ app.listen(5000); // start Node + Express server on port 5000
 ```
 
 - in the above code the exact keyword is used to make sure that the route is only active when the path is an exact match to the current url ... alternativley written `exact={true}`
+
+
+**Properties of a Place in this project**
+
+```jsx
+<PlaceItem
+          key={place.id}
+          id={place.id}
+          image={place.imageUrl}
+          title={place.title}
+          description={place.description}
+          address={place.address}
+          creatorId={place.creator}
+          coordinates={place.location}
+        />
+
+```
