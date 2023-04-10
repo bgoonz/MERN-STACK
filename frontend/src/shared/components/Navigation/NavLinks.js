@@ -7,11 +7,11 @@ const NavLinks = (props) => {
     <ul className="nav-links">
       <li>
         <NavLink to="/" exact>
-          ALL USERS
+          All Users
         </NavLink>
       </li>
       <li>
-        <NavLink to="/u1/places">MY PLACES</NavLink>
+        <NavLink to="/u1/places">My Places</NavLink>
       </li>
       <li>
         <NavLink to="/places/new">New Places</NavLink>
