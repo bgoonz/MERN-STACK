@@ -7,7 +7,6 @@ const VALIDATOR_TYPE_MAX = "MAX";
 const VALIDATOR_TYPE_EMAIL = "EMAIL";
 const VALIDATOR_TYPE_FILE = "FILE";
 
-
 /*These functions return validator configuration option objects */
 export const VALIDATOR_REQUIRE = () => ({ type: VALIDATOR_TYPE_REQUIRE });
 export const VALIDATOR_FILE = () => ({ type: VALIDATOR_TYPE_FILE });
@@ -22,7 +21,6 @@ export const VALIDATOR_MAXLENGTH = (val) => ({
 export const VALIDATOR_MIN = (val) => ({ type: VALIDATOR_TYPE_MIN, val: val });
 export const VALIDATOR_MAX = (val) => ({ type: VALIDATOR_TYPE_MAX, val: val });
 export const VALIDATOR_EMAIL = () => ({ type: VALIDATOR_TYPE_EMAIL });
-
 
 /* The validate function takes a concrete value (entered into input) and an array of validators and then checks the types of validation and then runs validation logic based on the type of validation */
 export const validate = (value, validators) => {
