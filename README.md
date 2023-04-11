@@ -172,35 +172,30 @@ app.listen(5000); // start Node + Express server on port 5000
 - Presentational components: These are components that are responsible for how things look. They are also called "dumb" or "stateless" components because they don't manage any state.
 - Stateful components: These are components that are responsible for how things work. They are also called "smart" or "stateful" components because they manage state.
 
-
 **React Router Exact Route**
 
-
 ```js
-  <NavLink to="/" exact>
-          ALL USERS
-        </NavLink>
+<NavLink to="/" exact>
+  ALL USERS
+</NavLink>
 ```
 
 - in the above code the exact keyword is used to make sure that the route is only active when the path is an exact match to the current url ... alternativley written `exact={true}`
-
 
 **Properties of a Place in this project**
 
 ```jsx
 <PlaceItem
-          key={place.id}
-          id={place.id}
-          image={place.imageUrl}
-          title={place.title}
-          description={place.description}
-          address={place.address}
-          creatorId={place.creator}
-          coordinates={place.location}
-        />
-
+  key={place.id}
+  id={place.id}
+  image={place.imageUrl}
+  title={place.title}
+  description={place.description}
+  address={place.address}
+  creatorId={place.creator}
+  coordinates={place.location}
+/>
 ```
-
 
 ### UseEffect Hook
 
@@ -208,7 +203,7 @@ Optional: More on the useEffect() Hook
 
 **Hooks are an important concept** in modern React - they allow you to add various functionalities to functional components. And that's important: **Only to functional components.**
 
-*If you're building class-based components (which you also can), you can't use hooks - you got different APIs there.*
+_If you're building class-based components (which you also can), you can't use hooks - you got different APIs there._
 
 In this course, we use functional components only and hence we use Hooks. Therefore, let's have a closer look at this very important `useEffect()` hook.
 
@@ -217,15 +212,16 @@ We already saw `useState()` before - this allowed us to register state which t
 `useEffect()` does something different: It allows you to **register some logic** (i.e. a JS function) which will be executed when certain **dependencies** - which you define - change.
 
 Let's have a look at the `Map` example:
+
 ```jsx
-  useEffect(() => {
-  const map = new window.google.maps.Map(mapRef.current, {
-  center: center,
-  zoom: zoom
+useEffect(() => {
+  const map = new window.google.maps.Map(mapRef.current, {
+    center: center,
+    zoom: zoom,
   });
 
-  new window.google.maps.Marker({ position: center, map: map });
-  }, [center, zoom]);
+  new window.google.maps.Marker({ position: center, map: map });
+}, [center, zoom]);
 ```
 
 The **logic** here (i.e. the function) is to render a map + a marker on the map.
@@ -241,3 +237,5 @@ If the component is re-evaluated and the dependencies did NOT change, the logic 
 **Important**: The `useEffect()` logic re-runs **AFTER** the component (including its JSX code) was re-evaluated. That means, that the first execution of the `useEffect()` logic (when a component mounts for the first time) will **ALWAYS** happen **AFTER** the component rendered for the first time.
 
 You can learn more about `useEffect()` in the official docs (or my "React - The Complete Guide" course of course): <https://reactjs.org/docs/hooks-reference.html#useeffect>
+
+**useReducer** a reducer is a function which recieves an action which we can dispatch and the current state and then updates the current state based on the action we recieved and returns the new state which use reducer gives us in the component so that we can use it to trigger a rerender.
