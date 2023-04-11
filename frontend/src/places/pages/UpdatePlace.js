@@ -7,6 +7,7 @@ import {
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
 import { DUMMY_PLACES } from "./UserPlaces";
+import './PlaceForm.css'
 
 const UpdatePlace = () => {
   const placeId = useParams().placeId;
@@ -20,7 +21,7 @@ const UpdatePlace = () => {
     );
   }
   return (
-    <form>
+    <form className="place-form">
       <Input
         id="title"
         element="input"

@@ -5,7 +5,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
-import "./NewPlace.css";
+import "./PlaceForm.css";
 /*VALIDATOR_REQUIRE() returns a validator configuration object*/
 /*-------------------FORM REDUCER------------------------------------------- */
 const formReducer = (state, action) => {
@@ -47,6 +47,10 @@ const NewPlace = () => {
         isValid: false,
       },
       description: {
+        value: "",
+        isValid: false,
+      },
+      address: {
         value: "",
         isValid: false,
       },
