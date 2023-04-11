@@ -239,3 +239,11 @@ If the component is re-evaluated and the dependencies did NOT change, the logic 
 You can learn more about `useEffect()` in the official docs (or my "React - The Complete Guide" course of course): <https://reactjs.org/docs/hooks-reference.html#useeffect>
 
 **useReducer** a reducer is a function which recieves an action which we can dispatch and the current state and then updates the current state based on the action we recieved and returns the new state which use reducer gives us in the component so that we can use it to trigger a rerender.
+
+##### New Place Form Fields:
+
+- Title
+- Description
+- Image
+- Address
+- Cordinates

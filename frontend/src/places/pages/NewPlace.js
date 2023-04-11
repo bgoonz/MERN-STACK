@@ -7,6 +7,7 @@ import {
 } from "../../shared/util/validators";
 import "./NewPlace.css";
 /*VALIDATOR_REQUIRE() returns a validator configuration object*/
+/*-------------------FORM REDUCER------------------------------------------- */
 const formReducer = (state, action) => {
   switch (action.type) {
     case "INPUT_CHANGE":
@@ -37,6 +38,7 @@ const formReducer = (state, action) => {
       return state;
   }
 };
+/*-------------------NEW PLACE COMPONENT------------------------------------------- */
 const NewPlace = () => {
   const [formState, dispatch] = useReducer(formReducer, {
     inputs: {
@@ -60,8 +62,13 @@ const NewPlace = () => {
     });
   }, []);
 
+  const placeSubmitHandler = (event) => {
+    event.preventDefault();
+    console.log(formState.inputs); //send this to the backend
+  };
+  /*-------------------JSX------------------------------------------- */
   return (
-    <form className="place-form">
+    <form className="place-form" onSubmit={placeSubmitHandler}>
       <Input
         id="title"
         element="input"
@@ -79,6 +86,15 @@ const NewPlace = () => {
         errorText="Please enter a valid description(at least 5 characters"
         onInput={inputHandler}
       />
+      <Input
+        id="address"
+        element="input"
+        label="Address"
+        validators={[VALIDATOR_REQUIRE()]}
+        errorText="Please enter a valid address"
+        onInput={inputHandler}
+      />
+
       <Button type="submit" disabled={!formState.isValid}>
         ADD PLACE
       </Button>
