@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
+import Input from "../../shared/components/FormElements/Input";
 import Card from "../../shared/components/UIElements/Card";
-import {
-  VALIDATOR_REQUIRE,
-  VALIDATOR_MINLENGTH,
-} from "../../shared/util/validators";
-import { DUMMY_PLACES } from "./UserPlaces";
 import useForm from "../../shared/hooks/form-hook";
+import {
+    VALIDATOR_MINLENGTH,
+    VALIDATOR_REQUIRE,
+} from "../../shared/util/validators";
 import "./PlaceForm.css";
+import { DUMMY_PLACES } from "./UserPlaces";
 
 /*-------------------UPDATE PLACE COMPONENT------------------------------------------- */
 const UpdatePlace = () => {
