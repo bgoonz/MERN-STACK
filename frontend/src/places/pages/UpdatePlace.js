@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Input from "../../shared/components/FormElements/Input";
 import Button from "../../shared/components/FormElements/Button";
+import Card from "../../shared/components/UIElements/Card";
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
@@ -10,6 +11,7 @@ import { DUMMY_PLACES } from "./UserPlaces";
 import useForm from "../../shared/hooks/form-hook";
 import "./PlaceForm.css";
 
+/*-------------------UPDATE PLACE COMPONENT------------------------------------------- */
 const UpdatePlace = () => {
   const [isLoading, setIsLoading] = useState(true);
   const placeId = useParams().placeId;
@@ -29,32 +31,37 @@ const UpdatePlace = () => {
     false
   );
   const identifiedPlace = DUMMY_PLACES.find((place) => place.id === placeId);
+  /*------------------Use Effect-------------------------------- */
   useEffect(() => {
-    setFormData(
-      {
-        title: {
-          value: identifiedPlace.title,
-          isValid: true,
+    /*if we have data for a place identifier */
+    if (identifiedPlace) {
+      setFormData(
+        {
+          title: {
+            value: identifiedPlace.title,
+            isValid: true,
+          },
+          description: {
+            value: identifiedPlace.description,
+            isValid: true,
+          },
         },
-        description: {
-          value: identifiedPlace.description,
-          isValid: true,
-        },
-      },
-      true
-    );
+        true
+      );
+    }
     setIsLoading(false);
   }, [identifiedPlace, setFormData]);
-
+  /*------------------Submit Handler------------------------------------------- */
   const placeUpdateSubmitHandler = (event) => {
     event.preventDefault();
     console.log("submit", formState.inputs);
   };
+  /*------------------Check For Data------------------------------------------- */
   if (!identifiedPlace) {
     return (
-      <div className="center">
+      <Card className="center">
         <h2>Could not find place!</h2>
-      </div>
+      </Card>
     );
   }
   if (isLoading) {
@@ -64,6 +71,7 @@ const UpdatePlace = () => {
       </div>
     );
   }
+  /*-------------------JSX------------------------------------------- */
   return (
     formState.inputs.title.value && (
       <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
