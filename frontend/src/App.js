@@ -1,9 +1,9 @@
 import React from "react";
 import {
-    Redirect,
-    Route,
-    BrowserRouter as Router,
-    Switch,
+  Redirect,
+  Route,
+  BrowserRouter as Router,
+  Switch,
 } from "react-router-dom";
 import NewPlace from "./places/pages/NewPlace";
 import UpdatePlace from "./places/pages/UpdatePlace";
