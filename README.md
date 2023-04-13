@@ -254,3 +254,48 @@ You can learn more about `useEffect()` in the official docs (or my "React - Th
 //i.e.
 setIsLoginMode((prevMode) => !prevMode);
 ```
+
+##### How to provide context to entire app... _(keep in mind you still need to listen for context in specific components that need it)_
+
+```jsx
+import { AuthContext } from "./shared/context/auth-context";
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // we use useCallback so that the login function is not recreated on every render cycle causing an infinite loop.
+  const login = useCallback(() => {
+    setIsLoggedIn(true);
+  }, []);
+  const logout = useCallback(() => {
+    setIsLoggedIn(false);
+  }, []);
+  return (
+    <AuthContext.Provider
+      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+    >
+      <Router>
+        <MainNavigation />
+        <main>
+          <Switch>
+            <Route path="/" exact>
+              <Users />
+            </Route>
+            <Route path="/:userId/places" exact>
+              <UserPlaces />
+            </Route>
+            <Route path="/places/new" exact>
+              <NewPlace />
+            </Route>
+            <Route path="/places/:placeId">
+              <UpdatePlace />
+            </Route>
+            <Route path="/auth">
+              <Auth />
+            </Route>
+            <Redirect to="/" />
+          </Switch>
+        </main>
+      </Router>
+    </AuthContext.Provider>
+  );
+};
+```
