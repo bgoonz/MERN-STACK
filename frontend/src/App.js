@@ -1,24 +1,25 @@
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import {
-  Redirect,
-  Route,
-  BrowserRouter as Router,
-  Switch,
+    Redirect,
+    Route,
+    BrowserRouter as Router,
+    Switch,
 } from "react-router-dom";
 
 import NewPlace from "./places/pages/NewPlace";
 import UpdatePlace from "./places/pages/UpdatePlace";
 import UserPlaces from "./places/pages/UserPlaces";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
+import { AuthContext } from "./shared/context/auth-context";
 import Auth from "./user/pages/Auth";
 import Users from "./user/pages/Users";
-import { AuthContext } from "./shared/context/auth-context";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // we use useCallback so that the login function is not recreated on every render cycle causing an infinite loop.
+
   const login = useCallback(() => {
     setIsLoggedIn(true);
   }, []);
+
   const logout = useCallback(() => {
     setIsLoggedIn(false);
   }, []);
