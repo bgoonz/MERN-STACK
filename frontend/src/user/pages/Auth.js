@@ -31,8 +31,6 @@ const Auth = () => {
     false
   );
 
-
-
   const switchModeHandler = () => {
     /*Keep in mind that in the if below we are switching from signup to login since the mode doesn't get switched until after the if check we are not validating the name field yet because it hasn't been added to the form yet. That is why name is set to undefined*/
     if (!isLoginMode) {
@@ -58,11 +56,11 @@ const Auth = () => {
 
     setIsLoginMode((prevMode) => !prevMode);
   };
-      const authSubmitHandler = (event) => {
-        event.preventDefault();
-        console.log(formState.inputs); //send this to the backend
-        auth.login();
-      };
+  const authSubmitHandler = (event) => {
+    event.preventDefault();
+    console.log(formState.inputs); //send this to the backend
+    auth.login();
+  };
   return (
     <Card className="authentication">
       <h2>Login Required</h2>

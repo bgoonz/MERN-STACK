@@ -301,8 +301,8 @@ const App = () => {
 ```
 
 **What components are interested in authcontext?**
-- **NavLinks** _if we are logged in we want to show logout and if we are not logged in we don't need to show 'my places'_
 
+- **NavLinks** _if we are logged in we want to show logout and if we are not logged in we don't need to show 'my places'_
 
 **We tap into the context provided using the useContext hook**
 
@@ -329,23 +329,25 @@ const NavLinks = (props) => {
         <NavLink to="/" exact>
           All Users
         </NavLink>
-          </li>
-        {auth.isLoggedIn && (
-      <li>
-        <NavLink to="/u1/places">My Places</NavLink>
-      </li>)}
-        {auth.isLoggedIn && ( <li>
-        <NavLink to="/places/new">Add Places</NavLink>
-      </li>)}
-          { !auth.isLoggedIn && ( <li>
-              <NavLink to="/auth">Authentication</NavLink>
-          </li> ) }
+      </li>
+      {auth.isLoggedIn && (
+        <li>
+          <NavLink to="/u1/places">My Places</NavLink>
+        </li>
+      )}
+      {auth.isLoggedIn && (
+        <li>
+          <NavLink to="/places/new">Add Places</NavLink>
+        </li>
+      )}
+      {!auth.isLoggedIn && (
+        <li>
+          <NavLink to="/auth">Authentication</NavLink>
+        </li>
+      )}
     </ul>
   );
 };
 
 export default NavLinks;
-
-
 ```
-
