@@ -247,3 +247,10 @@ You can learn more about `useEffect()` in the official docs (or my "React - Th
 - Image
 - Address
 - Cordinates
+
+**Toggling State** _should be done by using a function that returns the negation of the current state_
+
+```jsx
+//i.e.
+setIsLoginMode((prevMode) => !prevMode);
+```

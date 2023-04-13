@@ -8,16 +8,16 @@ import "./PlaceItem.css";
 const PlaceItem = (props) => {
   const [showMap, setShowMap] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
-/*----------------------Event Handlers----------------------------------------- */
+  /*----------------------Event Handlers----------------------------------------- */
   const openMapHandler = () => setShowMap(true);
   const closeMapHandler = () => setShowMap(false);
   const showDeleteWarningHandler = () => setShowConfirmModal(true);
   const cancelDeleteHandler = () => setShowConfirmModal(false);
   const confirmDeleteHandler = () => {
-      console.log( "Deleting..." );
-        setShowConfirmModal(false);
+    console.log("Deleting...");
+    setShowConfirmModal(false);
   };
-/*----------------------JSX----------------------------------------- */
+  /*----------------------JSX----------------------------------------- */
   return (
     <React.Fragment>
       <Modal
