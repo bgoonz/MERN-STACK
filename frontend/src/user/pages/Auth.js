@@ -12,7 +12,7 @@ import Button from "../../shared/components/FormElements/Button";
 import useForm from "../../shared/hooks/form-hook";
 import { AuthContext } from "../../shared/context/auth-context";
 import "./Auth.css";
-
+//-----------------Auth Component-----------------
 const Auth = () => {
   const auth = useContext(AuthContext);
 
@@ -30,9 +30,8 @@ const Auth = () => {
     },
     false
   );
-
+  //-----------------switchModeHandler-----------------
   const switchModeHandler = () => {
-    /*Keep in mind that in the if below we are switching from signup to login since the mode doesn't get switched until after the if check we are not validating the name field yet because it hasn't been added to the form yet. That is why name is set to undefined*/
     if (!isLoginMode) {
       setFormData(
         {
@@ -56,11 +55,48 @@ const Auth = () => {
 
     setIsLoginMode((prevMode) => !prevMode);
   };
-  const authSubmitHandler = (event) => {
+  //-----------------authSubmitHandler-----------------
+  const authSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(formState.inputs); //send this to the backend
+
+    if (isLoginMode) {
+     const response = await fetch("http://localhost:5000/api/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formState.inputs.email.value,
+          password: formState.inputs.password.value,
+        }),
+      });
+    } else {
+        try {
+               const response = await fetch(
+                 "http://localhost:5000/api/users/signup",
+                 {
+                   method: "POST",
+                   headers: {
+                     "Content-Type": "application/json",
+                   },
+                   body: JSON.stringify({
+                     email: formState.inputs.email.value,
+                     password: formState.inputs.password.value,
+                     name: formState.inputs.name.value,
+                   }),
+                 }
+               );
+            const responseData = await response.json();
+            console.log(responseData)
+        } catch (err){
+            console.log(err)
+        }
+ 
+    }
+
     auth.login();
   };
+  //-------------------JSX-------------------
   return (
     <Card className="authentication">
       <h2>Login Required</h2>
