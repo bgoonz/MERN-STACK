@@ -360,5 +360,20 @@ export default NavLinks;
 ---
 
 
+## Connecting Frontend and Backend
 
 
+##### CORS Policy: Cross Origin Resource Sharing _resources on a server can only be requested by the same origin (domain)_ To work around this... the server needs to attach a header to the response that allows the client to access the resource.
+
+```js
+//app.js in backend:
+app.use( ( req, res, next ) => {
+    res.setHeader( "Access-Control-Allow-Origin", "*" );
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    );
+    res.setHeader( "Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE" );
+    next();
+} );
+```
