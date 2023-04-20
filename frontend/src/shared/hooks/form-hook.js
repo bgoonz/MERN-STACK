@@ -41,7 +41,7 @@ const formReducer = (state, action) => {
   }
 };
 
-const useForm = (initialInputs, initialFormValidity) => {
+export const useForm = (initialInputs, initialFormValidity) => {
   const [formState, dispatch] = useReducer(formReducer, {
     inputs: initialInputs,
     isValid: initialFormValidity,
@@ -65,4 +65,4 @@ const useForm = (initialInputs, initialFormValidity) => {
   return [formState, inputHandler, setFormData];
 };
 
-export default useForm;
+
