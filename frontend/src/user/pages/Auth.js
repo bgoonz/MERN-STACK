@@ -80,11 +80,10 @@ const Auth = () => {
         if (!response.ok) {
           throw new Error(responseData.message);
         }
-  
+
         setIsLoading(false);
         auth.login();
       } catch (err) {
-     
         setIsLoading(false);
         setError(err.message || "Something went wrong, please try again.");
       }
