@@ -20,11 +20,11 @@ export const useHttpClient = () => {
           headers,
           signal: httpAbortCtrl.signal,
         });
-          const responseData = await response.json();
-          // We want to clear the abort controllers from the request that just completed.
-          activeHttpRequests.current = activeHttpRequests.current.filter(
-              ( reqCtrl ) => reqCtrl !== httpAbortCtrl
-            );
+        const responseData = await response.json();
+        // We want to clear the abort controllers from the request that just completed.
+        activeHttpRequests.current = activeHttpRequests.current.filter(
+          (reqCtrl) => reqCtrl !== httpAbortCtrl
+        );
         if (!response.ok) {
           throw new Error(responseData.message);
         }

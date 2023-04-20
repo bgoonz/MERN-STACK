@@ -94,11 +94,10 @@ const Auth = () => {
             "Content-Type": "application/json",
           }
         );
-        
+
         auth.login();
       } catch (err) {
         console.log(err);
-
       }
     }
   };
