@@ -26,15 +26,15 @@ const PlaceItem = (props) => {
         `http://localhost:5000/api/places/${props.id}`,
         "DELETE"
       );
-        props.onDelete(props.id);
+      props.onDelete(props.id);
     } catch (err) {
       console.log(err.message);
     }
   };
   /*----------------------JSX----------------------------------------- */
   return (
-      <React.Fragment>
-        <ErrorModal error={error} onClear={clearError} />
+    <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
       <Modal
         show={showMap}
         onCancel={closeMapHandler}
@@ -66,8 +66,8 @@ const PlaceItem = (props) => {
         <p>Are you sure you want to proceed and delete this place?</p>
       </Modal>
       <li className="place-item">
-              <Card className="place-item__content">
-            {isLoading && <LoadingSpinner asOverlay />}
+        <Card className="place-item__content">
+          {isLoading && <LoadingSpinner asOverlay />}
           <div className="place-item__image">
             <img src={props.image} alt={props.title} />
           </div>
@@ -80,10 +80,10 @@ const PlaceItem = (props) => {
             <Button inverse onClick={openMapHandler}>
               View On Map
             </Button>
-            {auth.userId === props.creatorId  && (
+            {auth.userId === props.creatorId && (
               <Button to={`/places/${props.id}`}>Edit</Button>
             )}
-            {auth.userId === props.creatorId  && (
+            {auth.userId === props.creatorId && (
               <Button danger onClick={showDeleteWarningHandler}>
                 Delete
               </Button>

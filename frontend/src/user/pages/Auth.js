@@ -1,19 +1,20 @@
 //add a form to the page using the useForm hook that renders an email and password input
 // Use validation from utils... password should be validated using VALIDATOR_MIN
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
+import Button from "../../shared/components/FormElements/Button";
+import ImageUpload from "../../shared/components/FormElements/ImageUpload";
+import Input from "../../shared/components/FormElements/Input";
+import Card from "../../shared/components/UIElements/Card";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import { AuthContext } from "../../shared/context/auth-context";
+import { useForm } from "../../shared/hooks/form-hook";
+import { useHttpClient } from "../../shared/hooks/http-hook";
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
 } from "../../shared/util/validators";
-import Card from "../../shared/components/UIElements/Card";
-import Input from "../../shared/components/FormElements/Input";
-import Button from "../../shared/components/FormElements/Button";
-import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
-import ErrorModal from "../../shared/components/UIElements/ErrorModal";
-import {useForm} from "../../shared/hooks/form-hook";
-import { useHttpClient } from "../../shared/hooks/http-hook";
-import { AuthContext } from "../../shared/context/auth-context";
 import "./Auth.css";
 //-----------------Auth Component-----------------
 const Auth = () => {
@@ -124,6 +125,7 @@ const Auth = () => {
               onInput={inputHandler}
             />
           )}
+          {!isLoginMode && <ImageUpload center id="image" />}
           <Input
             id="email"
             element="input"
