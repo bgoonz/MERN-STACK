@@ -394,3 +394,36 @@ formData.append("name", formState.inputs.name.value);
 formData.append("password", formState.inputs.password.value);
 formData.append("image", formState.inputs.image.value);
 ```
+
+
+---
+---
+
+
+##### Authentication
+
+**Hashing Passwords (done one backend)**
+
+```bash
+npm install bcryptjs
+```
+
+> in the code below `hashedPassword = await bcrypt.hash( password, 12 );` 12 is the number of rounds of hashing (salting) we want to do. the more rounds the more secure the password but the longer it takes to hash the password.
+```js
+  let hashedPassword;
+    try {
+        hashedPassword = await bcrypt.hash( password, 12 );
+    } catch ( err ) {
+        const error = new HttpError(
+            'Could not create user, error hashing password.',
+            500
+        );
+        return next( error );
+    }
+    
+
+```
+
+
+
+
