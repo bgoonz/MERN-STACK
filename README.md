@@ -378,3 +378,19 @@ app.use((req, res, next) => {
   next();
 });
 ```
+
+---
+
+---
+
+##### Submitting multiple types of data on a form
+
+> FormData is builtin browser api that allows us to combine text and blob data into one object that we can send to the backend
+
+```js
+const formData = new FormData();
+formData.append("email", formState.inputs.email.value);
+formData.append("name", formState.inputs.name.value);
+formData.append("password", formState.inputs.password.value);
+formData.append("image", formState.inputs.image.value);
+```
