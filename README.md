@@ -424,6 +424,11 @@ npm install bcryptjs
 
 ```
 
+---
+---
+
+**Options Requests** _for anything but GET requests... the browser sends a preceding options request to see if the server supports the request_
+
 
 
 
