@@ -87,23 +87,22 @@ const Auth = () => {
         console.log(err);
       }
     } else {
-        try {
-            const formData = new FormData();
-            formData.append( 'email', formState.inputs.email.value );
-            formData.append( 'name', formState.inputs.name.value );
-            formData.append( 'password', formState.inputs.password.value );
-            formData.append( 'image', formState.inputs.image.value );
-            
+      try {
+        const formData = new FormData();
+        formData.append("email", formState.inputs.email.value);
+        formData.append("name", formState.inputs.name.value);
+        formData.append("password", formState.inputs.password.value);
+        formData.append("image", formState.inputs.image.value);
+
         const responseData = await sendRequest(
           "http://localhost:5000/api/users/signup",
           "POST",
-            formData,
-        
+          formData
         );
 
         auth.login(responseData.user.id);
       } catch (err) {
-        console.log('SIGNUP ERROR',err);
+        console.log("SIGNUP ERROR", err);
       }
     }
   };
