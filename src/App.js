@@ -18,12 +18,15 @@ const App = () => {
   const [userId, setUserId] = useState(null);
 
   const login = useCallback((uid, token) => {
-    setToken(token);
+      setToken( token );
+      localStorage.setItem( 'userData', JSON.stringify( { userId: uid, token: token } ) );
+      
     setUserId(uid);
   }, []);
 
   const logout = useCallback(() => {
-    setToken(null);
+      setToken( null );
+        localStorage.removeItem( 'userData' );
     setUserId(null);
   }, []);
 
