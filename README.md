@@ -427,3 +427,10 @@ try {
 ---
 
 **Options Requests** _for anything but GET requests... the browser sends a preceding options request to see if the server supports the request_
+---
+**Code Splitting**  
+```js
+const Users = React.Lazy(()=>{
+    import('./user/pages/Auth')
+})
+```
