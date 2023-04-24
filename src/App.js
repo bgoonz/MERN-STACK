@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import {
   Redirect,
   Route,
@@ -13,20 +13,32 @@ import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import { AuthContext } from "./shared/context/auth-context";
 import Auth from "./user/pages/Auth";
 import Users from "./user/pages/Users";
+
+/*-------------------APP COMPONENT------------------- */
 const App = () => {
   const [token, setToken] = useState(false);
   const [userId, setUserId] = useState(null);
 
   const login = useCallback((uid, token) => {
-      setToken( token );
-      localStorage.setItem( 'userData', JSON.stringify( { userId: uid, token: token } ) );
-      
+    setToken(token);
+    localStorage.setItem(
+      "userData",
+      JSON.stringify({ userId: uid, token: token })
+    );
+
     setUserId(uid);
   }, []);
 
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("userData"));
+    if (storedData && storedData.token) {
+      login(storedData.userId, storedData.token);
+    }
+  }, [login]);
+
   const logout = useCallback(() => {
-      setToken( null );
-        localStorage.removeItem( 'userData' );
+    setToken(null);
+    localStorage.removeItem("userData");
     setUserId(null);
   }, []);
 
