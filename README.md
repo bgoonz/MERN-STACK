@@ -2,6 +2,10 @@
 
 
 ### [Deployed Website](https://mern-stack-470b9.web.app/)
+
+> Note... some functionality may be broken due to the free trial period of the server supporting the backend app.. but the code is correct.
+
+
 ### [Backend Repo](https://github.com/bgoonz/MERN-STACK-BACKEND)
 
 ### MERN Stack is a full stack JavaScript framework for building web applications and mobile applications.
